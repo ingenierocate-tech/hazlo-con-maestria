@@ -1,32 +1,34 @@
-// app/components/WhatsAppButton.tsx
 "use client";
 
+import Link from "next/link";
+
 export default function WhatsAppButton() {
-  const phone = "56994720824";
-  const text = encodeURIComponent("¡Hola! Quiero un diagnóstico express.");
-  const href = `https://wa.me/${phone}?text=${text}`;
+  const WHATSAPP_URL =
+    "https://wa.me/56994720824?text=Hola%20Gonzalo,%20quisiera%20un%20diagn%C3%B3stico%20express%20de%20IA.";
 
   return (
-    <a
-      href={href}
+    <Link
+      href={WHATSAPP_URL}
       target="_blank"
-      rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"
-      className="fixed bottom-6 right-6 z-50"
+      className="
+        fixed bottom-6 right-6 z-[60]
+        inline-flex items-center justify-center
+        h-16 w-16 rounded-full
+        bg-[#25D366] text-white
+        shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.3)]
+        transition-transform hover:scale-[1.05] active:scale-95
+        focus:outline-none focus:ring-2 focus:ring-white/70
+      "
     >
-      <span className="grid place-items-center h-14 w-14 rounded-full bg-[#25D366] shadow-lg ring-1 ring-black/10 hover:shadow-xl hover:brightness-95 transition">
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          fill="currentColor"
-          className="text-white"
-        >
-          {/* Ícono WhatsApp más limpio */}
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.028-.967-.271-.099-.469-.149-.667.149-.197.297-.767.967-.94 1.164-.173.198-.346.223-.643.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.76-1.653-2.057-.173-.297-.019-.458.13-.606.134-.133.297-.346.446-.52.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.149-.667-1.611-.914-2.208-.242-.579-.487-.501-.667-.51-.173-.009-.371-.009-.569-.009-.198 0-.52.074-.793.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.19 5.08 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.875.118.572-.085 1.758-.718 2.007-1.412.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-        </svg>
-      </span>
-    </a>
+      <svg
+        viewBox="0 0 32 32"
+        className="h-8 w-8"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M19.11 17.39c-.27-.13-1.58-.78-1.82-.86-.24-.09-.41-.13-.59.13-.17.27-.68.86-.83 1.04-.15.17-.3.2-.56.07-.27-.13-1.12-.41-2.14-1.31-.79-.7-1.33-1.56-1.49-1.82-.15-.27-.02-.41.11-.54.11-.11.27-.3.41-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.59-1.43-.81-1.96-.21-.5-.42-.43-.59-.43-.15 0-.32-.02-.5-.02s-.45.07-.68.32c-.24.26-.9.88-.9 2.15 0 1.26.92 2.49 1.05 2.66.13.17 1.81 2.76 4.39 3.86.61.26 1.08.41 1.45.52.61.19 1.17.16 1.61.1.49-.07 1.58-.64 1.81-1.27.22-.63.22-1.18.15-1.29-.06-.11-.24-.17-.5-.3zM15.86 4.62a10.27 10.27 0 0 0-8.8 15.32l-1.39 5.06 5.18-1.36A10.28 10.28 0 1 0 15.86 4.62zm0 18.49c-1.77 0-3.42-.52-4.8-1.41l-.34-.22-3.07.81.82-2.99-.23-.35a8.53 8.53 0 1 1 7.62 4.16z" />
+      </svg>
+    </Link>
   );
 }

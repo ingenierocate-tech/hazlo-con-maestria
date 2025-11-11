@@ -162,18 +162,23 @@ a:hover {
 /* ============================================================
    ⚙️ SCROLLBAR
    ============================================================ */
+html {
+  scrollbar-color: #9CA3AF #E5E7EB; /* Firefox: thumb y track en gris */
+  scrollbar-width: thin;
+}
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px; /* vertical */
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-soft);
+  background: #E5E7EB; /* gris claro estándar */
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 4px;
+  background: #9CA3AF; /* gris medio estándar */
+  border-radius: 6px;
+  border: 2px solid #E5E7EB; /* da look nativo */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--color-primary) 80%, white 20%);
+  background: #6B7280; /* gris un poco más oscuro al hover */
 }
 /* --- Fix global hover de enlaces --- */
 .header .nav-link,

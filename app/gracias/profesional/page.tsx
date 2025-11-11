@@ -21,7 +21,7 @@ export default function GraciasProfesional() {
             Agendar 30 minutos
           </a>
           <a
-            href="https://wa.me/56XXXXXXXX?text=Hola,%20vengo%20del%20diagnóstico%20profesional"
+            href="https://wa.me/56994720824?text=Hola,%20vengo%20del%20diagn%C3%B3stico%20profesional"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex justify-center bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:brightness-110 transition"

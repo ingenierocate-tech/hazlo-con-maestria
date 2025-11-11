@@ -1,48 +1,52 @@
-// app/components/Footer.tsx
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-[#2E5AF7] text-white">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Marca */}
+    <footer className="relative mt-16 bg-[#2A5AF6] text-white">
+      <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        {/* Logo + marca */}
         <div className="flex items-center gap-4">
-          <Image src="/logo.png" alt="Hazlo con MaestrIA" width={48} height={48} />
-          <span className="text-2xl font-semibold">Hazlo con MaestrIA</span>
+          <Image
+            src="/img/logo.png"
+            alt="Hazlo con MaestrIA"
+            width={44}
+            height={44}
+            className="rounded-lg"
+            priority
+          />
+          <span className="text-xl font-semibold">Hazlo con MaestrIA</span>
         </div>
 
-        {/* Frase inspiradora */}
-        <p className="text-center text-white/90 text-lg">
-          La Inteligencia Artificial llegó para quedarse, súmate a ella antes que sea demasiado tarde.
+        {/* Frase exacta (sin cambios futuros) */}
+        <p className="text-white/90 text-center md:text-left max-w-2xl italic">
+          “La Inteligencia Artificial llegó para quedarse, súmate a ella antes que sea demasiado tarde.”
         </p>
 
-        {/* Redes */}
-        <div className="flex items-center gap-6">
-          {/* Instagram */}
-          <a
-            href="https://instagram.com/tu_instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 transition"
+        {/* Ícono Instagram */}
+        <a
+          href="https://instagram.com/hazloconmaestria.cl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="inline-flex items-center justify-center"
+        >
+          <span
+            className="
+              inline-flex h-12 w-12 items-center justify-center rounded-full
+              shadow-sm hover:shadow
+              bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]
+            "
           >
             <svg
-              width="22"
-              height="22"
               viewBox="0 0 24 24"
+              className="h-6 w-6 text-white"
+              fill="currentColor"
               aria-hidden="true"
-              className="text-white"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
             >
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-1.25 2.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 7a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
             </svg>
-          </a>
-        </div>
+          </span>
+        </a>
       </div>
     </footer>
   );
