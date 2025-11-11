@@ -1,20 +1,23 @@
 // app/components/QuickWin.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
-const container = {
+// Bezier suave equivalente a easeOut
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const container: Variants = {
   hidden: { opacity: 0, y: 12 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.1 },
+    transition: { duration: 0.5, ease: EASE, when: "beforeChildren", staggerChildren: 0.1 },
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
 };
 
 // 1) Toma desde env si existe; si no, usa la constante de fallback.
