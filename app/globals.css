@@ -1,26 +1,200 @@
-@import "tailwindcss";
+/* ============================================================
+   🌐 Estilos Globales – ConsultorIA Web
+   ============================================================ */
+
+/* ---- Reset y tipografía base ---- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #0063f7;   /* Azul principal */
+  --color-accent: #ffd642;    /* Amarillo acento */
+  --color-foreground: #1a1a1a;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f8fb;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-foreground);
+  scroll-behavior: smooth;
 }
+
+/* ---- Titulares y párrafos ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-foreground);
+}
+
+p {
+  color: var(--color-foreground);
+  line-height: 1.6;
+}
+
+/* ---- Layout general ---- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ============================================================
+   🎨 BOTONES – Consistentes en toda la web
+   ============================================================ */
+
+/* Base para todos los botones */
+.btn-primary,
+.btn-accent,
+.btn-ghost {
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔵 Botón principal (azul) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 85%, white 15%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* 🟡 Botón acento (amarillo visible en banner) */
+.btn-accent {
+  background-color: #ffb800; /* Amarillo fuerte */
+  color: #ffffff; /* Texto blanco */
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-accent:hover {
+  background-color: #ffd84d; /* Amarillo más claro al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-accent:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ⚪ Botón fantasma (borde gris) */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+}
+.btn-ghost:hover {
+  background-color: var(--color-bg-soft);
+  transform: translateY(-1px);
+}
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   🔠 LINKS Y NAVEGACIÓN
+   ============================================================ */
+
+/* Evita subrayados globales */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Enlaces de menú */
+.nav-link {
+  @apply px-3 py-2 rounded-lg font-medium transition;
+  color: var(--color-foreground);
+}
+.nav-link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-soft);
+}
+
+/* ============================================================
+   🧱 CARDS
+   ============================================================ */
+
+.card {
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   ⚙️ SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-primary) 80%, white 20%);
+}
+/* --- Fix global hover de enlaces --- */
+.header .nav-link,
+a.btn-primary {
+  text-decoration: none;
+}
+
+.header .nav-link:hover,
+.header .nav-link:focus {
+  color: #111827; /* neutral-900 */
+}
+
+/* Botón primario: el texto SIEMPRE blanco aun en hover/focus */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff !important;
+}
+.btn-accent {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl font-medium shadow-sm transition;
+  background-color: #e7c24b; /* amarillo IA a tu medida */
+  color: #1f2937; /* neutral-800 */
+}
+.btn-accent:hover { filter: brightness(1.03); }

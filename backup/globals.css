@@ -1,0 +1,15 @@
+/* Copia de respaldo de app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0063f7;
+  --color-accent: #ffd642;
+  --color-foreground: #1a1a1a;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f8fb;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
+}
+/* ... resto del archivo idéntico a la versión actual ... */
