@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 type Testimonial = {
   name: string;
@@ -37,18 +37,32 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const container = {
-  hidden: { opacity: 0, y: 20 },
+// Cubic-bezier suave equivalente a un easeOut agradable
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const container: Variants = {
+  hidden: { opacity: 0, y: 12 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.12 },
+    transition: {
+      duration: 0.5,
+      ease: EASE,          // 👈 ya no es string
+      staggerChildren: 0.12,
+    },
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+const item: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: EASE,          // 👈 idem
+    },
+  },
 };
 
 export default function FeaturedCases() {
@@ -73,6 +87,7 @@ export default function FeaturedCases() {
           {testimonials.map((t) => (
             <motion.article
               key={t.name}
+              // cada tarjeta usa la variante item
               variants={item}
               className="flex flex-col justify-between rounded-2xl bg-white border border-black/5 shadow-sm p-8 transition-all duration-300 hover:shadow-lg hover:border-[#0063F7]/70"
             >
