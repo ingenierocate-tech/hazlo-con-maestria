@@ -9,8 +9,8 @@ export default function Footer() {
           <Image
             src="/img/logo.png"
             alt="Hazlo con MaestrIA"
-            width={44}
-            height={44}
+            width={60}
+            height={60}
             className="rounded-lg"
             priority
           />

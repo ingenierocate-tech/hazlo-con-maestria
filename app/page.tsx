@@ -1,23 +1,24 @@
 // app/page.tsx
-import Banner from "./components/Banner";
+import IntroSection from "./components/IntroSection";
 import PainPoints from "./components/PainPoints";
 import Services from "./components/Services";
+import Process from "./components/Process";           // 👈 se asegura la sección
+import Results from "./components/Results";
 import Testimonials from "./components/Testimonials";
 import QuickWin from "./components/QuickWin";
-import HowWeDo from "./components/HowWeDo";
-import Results from "./components/Results";
+import Banner from "./components/Banner";
 
 export default function Page() {
   return (
     <main>
+      
       <Banner />
       <PainPoints />
       <Services />
-      <HowWeDo />
-      <Results />
+      <Process />
+      <Results />            {/* ✅ Reemplaza FeaturedCases por Results */}
       <Testimonials />
       <QuickWin />
-      {/* Footer no va aquí; se renderiza desde app/layout.tsx */}
     </main>
   );
 }

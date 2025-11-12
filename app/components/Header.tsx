@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const nav = [
   { href: "/#servicios", label: "Servicios" },
-  { href: "/#testimonios", label: "Casos" },
+  { href: "/#testimonios", label: "Testimonios" }, // siempre a HOME → sección testimonios
 ];
 
 export default function Header() {
@@ -17,8 +17,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Hazlo con MaestrIA"
-            width={44}
-            height={44}
+            width={60}
+            height={60}
             priority
           />
           <span className="text-xl font-semibold text-neutral-900">
