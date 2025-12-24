@@ -3,24 +3,33 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import WhatsAppButton from "./components/WhatsAppButton"; // si no existe, comenta esta línea
+import WhatsAppButton from "./components/WhatsAppButton";
+import ClientLayout from "./components/ClientLayout";
 import { poppins } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Consultoría IA — Hazlo con MaestrIA",
-  description:
-    "IA aplicada a tus procesos: automatización, formación de equipos y quick-wins medibles.",
+  title: "Hazlo con MaestrIA",
+  description: "Consultoría y automatización con IA",
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=3", rel: "icon" },
+      { url: "/favicon.ico?v=3", rel: "shortcut icon" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png?v=3" }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body className={`${poppins.variable} font-sans text-foreground bg-white antialiased`}>
-        {/* deja un padding-top si tu Header es fijo */}
-        <Header />
-        <main className="pt-20">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <ClientLayout
+          header={<Header />}
+          footer={<Footer />}
+          waButton={<WhatsAppButton />}
+        >
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
